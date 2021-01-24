@@ -56,12 +56,16 @@ public class SearchInfoOnPastebin extends AbstractPage{
 
     public void CheckTitleOfThePage() {
         String expectedTitle = "how to gain dominance among developers";
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='info-top']/h1")));
         String currentTitle = driver.findElement(By.xpath("//div[@class='info-top']/h1")).getText();
         Assert.assertEquals(currentTitle,expectedTitle);
     }
 
     public void CheckTypeOfSyntax() {
         String expectedSyntax = "Bash";
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='top-buttons']/div[@class='left']/a")));
         String currentSyntax = driver.findElement(By.xpath("//div[@class='top-buttons']/div[@class='left']/a")).getText();
         Assert.assertEquals(currentSyntax,expectedSyntax);
     }
@@ -69,6 +73,8 @@ public class SearchInfoOnPastebin extends AbstractPage{
         String expectedCode = "git config --global user.name  \"New Sheriff in Town\"\n" +
                 "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
                 "git push origin master --force";
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='source']")));
         String currentCode = driver.findElement(By.xpath("//div[@class='source']")).getText();
         Assert.assertEquals(expectedCode,currentCode);
     }

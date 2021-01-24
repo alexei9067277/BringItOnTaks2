@@ -22,7 +22,7 @@ public class Task2Tests {
     }
 
     @Test
-    public void createNewPasteFields() {
+    public void createNewPasteFields() throws InterruptedException {
         searchInfoOnPastebin.openPage();
         searchInfoOnPastebin.addCodeIntoTextarea("git config --global user.name  \"New Sheriff in Town\"\n" +
                                                             "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
